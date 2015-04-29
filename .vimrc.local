@@ -1,0 +1,78 @@
+set relativenumber
+let &t_Co=256
+
+syntax enable
+
+colorscheme hybrid
+
+"rename current file, via Gary Bernhardt
+function! RenameFile()
+  let old_name = expand('%')
+  let new_name = input('New file name: ', expand('%'))
+  if new_name != '' && new_name != old_name
+    exec ':saveas ' . new_name
+    exec ':silent !rm ' . old_name
+    redraw!
+  endif
+endfunction
+map <leader>n :call RenameFile()<cr>
+
+command! TIL tabe ~/Document/TIL.md
+
+" Simple re-format for minified Javascript
+command! UnMinify call UnMinify()
+function! UnMinify()
+    %s/{\ze[^\r\n]/{\r/g
+    %s/){/) {/g
+    %s/};\?\ze[^\r\n]/\0\r/g
+    %s/;\ze[^\r\n]/;\r/g
+    %s/[^\s]\zs[=&|]\+\ze[^\s]/ \0 /g
+    normal ggVG=
+endfunction
+
+set clipboard=unnamed "use the system clipboard
+
+imap <C-c> <CR><esc>O
+imap <C-l> <esc>GA
+
+" Seeing is believing
+let g:xmpfilter_cmd = "seeing_is_believing"
+
+autocmd FileType ruby nmap <buffer> <leader>e <Plug>(seeing_is_believing-mark)
+autocmd FileType ruby nmap <buffer> <leader>q <Plug>(seeing_is_believing-clean)
+autocmd FileType ruby nmap <buffer> <leader>w <Plug>(seeing_is_believing-run)
+
+" Tabularize mappings
+nmap <leader>>> :Tabularize /:\zs.*/<CR>
+vmap <leader>>> :Tabularize /:\zs.*/<CR>
+
+" Leader key for fuzzy find
+nnoremap <leader>f :CtrlP<CR>
+
+" Trigger configuration for UltiSnips
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "LocalSnips"]
+let g:UltiSnipsExpandTrigger="<c-j>"
+
+" Get rid of handlebars incorrect syntax errors
+let g:syntastic_filetype_map = { 'html.handlebars': 'handlebars' }
+
+" highlight trailing spaces in annoying red
+highlight ExtraWhitespace ctermbg=1 guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+" ctags leader
+map <leader>rt :!ctags -R --languages=ruby --exclude=.git --exclude=log . $(bundle list --paths)<cr>
+
+" remove trailing white space
+autocmd BufWritePre * :%s/\s\+$//e
+
+" 4 space tabs for Java
+autocmd FileType java setlocal shiftwidth=4
+autocmd FileType java setlocal tabstop=4
+
+" Shortcut for compline to Java bytecodes
+map <leader>c :!javac %<cr>

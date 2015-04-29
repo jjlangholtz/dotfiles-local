@@ -1,0 +1,2 @@
+alias ll='exa -bghHliS'
+alias be="bundle exec"
