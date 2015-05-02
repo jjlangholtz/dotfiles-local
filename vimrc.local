@@ -70,9 +70,10 @@ map <leader>rt :!ctags -R --languages=ruby --exclude=.git --exclude=log . $(bund
 " remove trailing white space
 autocmd BufWritePre * :%s/\s\+$//e
 
-" 4 space tabs for Java
-autocmd FileType java setlocal shiftwidth=4
-autocmd FileType java setlocal tabstop=4
+" 4 space tabs for Java and c
+autocmd FileType java,c setlocal shiftwidth=4
+autocmd FileType java,c setlocal tabstop=4
 
-" Shortcut for compline to Java bytecodes
-map <leader>c :!javac %<cr>
+" Shortcut for compile to Java bytecode or c compile
+autocmd FileType java map <leader>c :!javac %<cr>
+autocmd FileType c map <leader>c :!cc %<cr>
