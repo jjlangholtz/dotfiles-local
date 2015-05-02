@@ -50,7 +50,7 @@ vmap <leader>>> :Tabularize /:\zs.*/<CR>
 nnoremap <leader>f :CtrlP<CR>
 
 " Trigger configuration for UltiSnips
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "LocalSnips"]
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "snips"]
 let g:UltiSnipsExpandTrigger="<c-j>"
 
 " Get rid of handlebars incorrect syntax errors

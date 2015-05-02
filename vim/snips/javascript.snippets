@@ -1,0 +1,26 @@
+##
+# Ember snippets for Vim UltiSnip
+##
+
+snippet imp "ES6 import variable"
+import ${1:Ember} from '${2:ember}';
+endsnippet
+
+snippet exp "ES6 export Class"
+export ${1:default} ${2:Ember}.${3:Component}.extend({${4}});
+endsnippet
+
+snippet cp "Computed property"
+${1:name}: function(${2}) {
+	${4}
+).property('${3}')
+endsnippet
+
+snippet tg "Ember get syntax"
+this.get('${1}')${2}
+endsnippet
+
+snippet ts "Ember set syntax"
+this.set('${1}', '${2}')${3}
+endsnippet
+
