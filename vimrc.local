@@ -1,3 +1,10 @@
+"edit my local vimrc
+nnoremap <leader>ev :vsplit ~/personal/dotfiles/vimrc.local<cr>
+
+"use rcup to source dotfiles
+nnoremap <leader>d :!rcup -d ~/personal/dotfiles<cr>
+nnoremap <leader>v :source $MYVIMRC<cr>
+
 set relativenumber
 let &t_Co=256
 
@@ -6,11 +13,11 @@ syntax enable
 colorscheme hybrid
 
 "delete line in insert mode
-inoremap <c-d> <esc>ddi
+inoremap <c-d> <esc>ddO
 
 "uppercase the current word
 nnoremap <c-u> viwU<esc>
-inoremap <c-u> <esc>viwUi
+inoremap <c-u> <esc>viwUA
 
 "rename current file, via Gary Bernhardt
 function! RenameFile()
