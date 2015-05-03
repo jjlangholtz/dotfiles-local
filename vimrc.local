@@ -5,6 +5,13 @@ syntax enable
 
 colorscheme hybrid
 
+"delete line in insert mode
+inoremap <c-d> <esc>ddi
+
+"uppercase the current word
+nnoremap <c-u> viwU<esc>
+inoremap <c-u> <esc>viwUi
+
 "rename current file, via Gary Bernhardt
 function! RenameFile()
   let old_name = expand('%')
@@ -32,8 +39,8 @@ endfunction
 
 set clipboard=unnamed "use the system clipboard
 
-imap <C-c> <CR><esc>O
-imap <C-l> <esc>GA
+inoremap <C-c> <CR><esc>O
+inoremap <C-l> <esc>GA
 
 " Seeing is believing
 let g:xmpfilter_cmd = "seeing_is_believing"
@@ -43,8 +50,8 @@ autocmd FileType ruby nmap <buffer> <leader>q <Plug>(seeing_is_believing-clean)
 autocmd FileType ruby nmap <buffer> <leader>w <Plug>(seeing_is_believing-run)
 
 " Tabularize mappings
-nmap <leader>>> :Tabularize /:\zs.*/<CR>
-vmap <leader>>> :Tabularize /:\zs.*/<CR>
+nnoremap <leader>>> :Tabularize /:\zs.*/<CR>
+vnoremap <leader>>> :Tabularize /:\zs.*/<CR>
 
 " Leader key for fuzzy find
 nnoremap <leader>f :CtrlP<CR>
@@ -75,5 +82,5 @@ autocmd FileType java,c setlocal shiftwidth=4
 autocmd FileType java,c setlocal tabstop=4
 
 " Shortcut for compile to Java bytecode or c compile
-autocmd FileType java map <leader>c :!javac %<cr>
-autocmd FileType c map <leader>c :!cc %<cr>
+autocmd FileType java noremap <leader>c :!javac %<cr>
+autocmd FileType c noremap <leader>c :!cc %<cr>
