@@ -2,3 +2,5 @@ bindkey "^B" backward-char
 bindkey "^F" forward-char
 bindkey "^K" kill-line
 bindkey "^N" history-search-forward
+
+eval "$(rbenv init - --no-rehash)"

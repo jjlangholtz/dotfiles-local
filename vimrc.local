@@ -5,6 +5,10 @@ nnoremap <leader>ev :vsplit ~/personal/dotfiles/vimrc.local<cr>
 nnoremap <leader>d :!rcup -d ~/personal/dotfiles<cr>
 nnoremap <leader>v :source $MYVIMRC<cr>
 
+"strong H and L
+noremap H 0
+noremap L $
+
 set relativenumber
 let &t_Co=256
 
