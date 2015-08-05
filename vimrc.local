@@ -74,6 +74,9 @@ let g:UltiSnipsExpandTrigger="<c-j>"
 " Get rid of handlebars incorrect syntax errors
 let g:syntastic_filetype_map = { 'html.handlebars': 'handlebars' }
 
+" Rubocop with syntastic
+let g:syntastic_ruby_checkers = ['rubocop', 'mri']
+
 " highlight trailing spaces in annoying red
 highlight ExtraWhitespace ctermbg=1 guibg=red
 match ExtraWhitespace /\s\+$/
