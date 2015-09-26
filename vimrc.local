@@ -1,5 +1,6 @@
 "edit my local vimrc
-nnoremap <leader>ev :vsplit ~/personal/dotfiles/vimrc.local<cr>
+nnoremap <leader>ev :vsplit ~/dotfiles-local/vimrc.local<cr>
+nnoremap <leader>eb :vsplit ~/dotfiles-local/vimrc.bundles.local<cr>
 
 "use rcup to source dotfiles
 nnoremap <leader>d :!rcup -d ~/personal/dotfiles<cr>
