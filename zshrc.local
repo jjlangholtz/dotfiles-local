@@ -3,7 +3,7 @@ bindkey "^F" forward-char
 bindkey "^K" kill-line
 bindkey "^N" history-search-forward
 
-export GOPATH=~/Validic
-export PATH=$GOPATH/bin:$PATH
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
 
 eval "$(rbenv init - --no-rehash)"
