@@ -13,6 +13,6 @@ Clone:
 
 Install:
 
-    rcup -d dotfiles -x README.md
+    env RCRC=$HOME/dotfiles-local/rcrc rcup
 
-This install command can be run multiple times to update changes.
+Afterwards new changes can be installed and sources using `rcup`.
