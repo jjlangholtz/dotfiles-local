@@ -58,10 +58,6 @@ inoremap <C-l> <esc>GA
 " Seeing is believing
 let g:xmpfilter_cmd = "seeing_is_believing"
 
-autocmd FileType ruby nmap <buffer> <leader>e <Plug>(seeing_is_believing-mark)
-autocmd FileType ruby nmap <buffer> <leader>q <Plug>(seeing_is_believing-clean)
-autocmd FileType ruby nmap <buffer> <leader>w <Plug>(seeing_is_believing-run)
-
 " Tabularize mappings
 nnoremap <leader>>> :Tabularize /:\zs.*/<CR>
 vnoremap <leader>>> :Tabularize /:\zs.*/<CR>
@@ -92,11 +88,3 @@ map <leader>rt :!ctags -R --languages=ruby --exclude=.git --exclude=log . $(bund
 
 " remove trailing white space
 autocmd BufWritePre * :%s/\s\+$//e
-
-" 4 space tabs for Java and c
-autocmd FileType java,c setlocal shiftwidth=4
-autocmd FileType java,c setlocal tabstop=4
-
-" Shortcut for compile to Java bytecode or c compile
-autocmd FileType java noremap <leader>c :!javac %<cr>
-autocmd FileType c noremap <leader>c :!cc %<cr>
