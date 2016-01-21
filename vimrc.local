@@ -39,6 +39,9 @@ map <leader>n :call RenameFile()<cr>
 
 command! TIL tabe ~/Document/TIL.md
 
+" Easy debugger placement
+command! Pry :normal i require 'pry'<CR>binding.pry
+
 " Simple re-format for minified Javascript
 command! UnMinify call UnMinify()
 function! UnMinify()
