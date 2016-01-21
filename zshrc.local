@@ -7,3 +7,9 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
 eval "$(rbenv init - --no-rehash)"
+
+if [ "$(docker-machine status default)" == "Running" ]; then
+  eval "$(docker-machine env default)"
+else
+  echo "Default docker machine is not running"
+fi

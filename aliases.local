@@ -1,6 +1,7 @@
 alias be='bundle exec'
 alias d='docker'
 alias dc='docker-compose'
+alias dip='docker-machine ip default'
 alias ll='exa -bghHliS'
 
 # Alias to Homebrew vim version because El Capitan disallows removing old vim
