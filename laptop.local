@@ -1,0 +1,12 @@
+#!/bin/sh
+
+brew_install_or_upgrade 'shellcheck'
+
+# TODO: setup repeatable cask installs and upgrades
+brew cask install 'Caskroom/cask/atom'
+
+# Upgrade atom packages
+apm upgrade
+
+apm install vim-mode
+apm install ex-mode
