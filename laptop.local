@@ -4,6 +4,7 @@ brew_install_or_upgrade 'shellcheck'
 
 # TODO: setup repeatable cask installs and upgrades
 brew cask install 'Caskroom/cask/atom'
+brew cask install 'macdown'
 
 # Upgrade atom packages
 apm upgrade
