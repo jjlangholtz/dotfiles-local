@@ -20,7 +20,6 @@ Afterwards new changes can be installed and sources using `rcup`.
 What's Included?
 ----------------
 ### Docker
-* Automatic `docker-machine` environment setup on shell opening
 * Aliases for common docker commands:
     * `d # docker`
     * `dc # docker-compose`

@@ -12,11 +12,4 @@ eval "$(rbenv init - --no-rehash)"
 # Script to alias hub as git
 eval "$(hub alias -s)"
 
-# Run docker machine env for this shell, alert if docker machine is inactive
-if [ "$(docker-machine status default)" == "Running" ]; then
-  eval "$(docker-machine env default)"
-else
-  echo "Default docker machine is not running"
-fi
-
 export PATH="$HOME/.bin:$PATH"
