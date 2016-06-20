@@ -68,15 +68,12 @@ vnoremap <leader>>> :Tabularize /:\zs.*/<CR>
 " Leader key for fuzzy find
 nnoremap <leader>f :CtrlP<CR>
 
-" Trigger configuration for UltiSnips
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "snips"]
-let g:UltiSnipsExpandTrigger="<c-j>"
-
 " Get rid of handlebars incorrect syntax errors
 let g:syntastic_filetype_map = { 'html.handlebars': 'handlebars' }
 
 " Tell syntastic to use eslint
 let g:syntastic_javascript_checkers = ['eslint']
+let g:neomake_ruby_enabled_makers = ['rubocop']
 
 " highlight trailing spaces in annoying red
 highlight ExtraWhitespace ctermbg=1 guibg=red
