@@ -15,8 +15,8 @@ let &t_Co=256
 
 syntax enable
 
-colorscheme hybrid
 set background=dark
+colorscheme hybrid
 
 "delete line in insert mode
 inoremap <c-d> <esc>ddO
