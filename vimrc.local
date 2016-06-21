@@ -77,6 +77,8 @@ let g:syntastic_javascript_checkers = ['eslint']
 autocmd! BufWritePost * Neomake
 let g:neomake_ruby_enabled_makers = ['rubocop']
 
+let test#strategy = 'neovim'
+
 " highlight trailing spaces in annoying red
 highlight ExtraWhitespace ctermbg=1 guibg=red
 match ExtraWhitespace /\s\+$/
