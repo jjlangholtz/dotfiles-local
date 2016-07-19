@@ -2,7 +2,3 @@ alias be='bundle exec'
 alias d='docker'
 alias dc='docker-compose'
 alias dip='docker-machine ip default'
-
-# Alias to Homebrew version because El Capitan disallows removing old versions
-alias vim='/usr/local/bin/vim'
-alias ctags='/usr/local/bin/ctags'

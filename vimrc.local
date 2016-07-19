@@ -54,6 +54,7 @@ function! UnMinify()
 endfunction
 
 set clipboard=unnamed "use the system clipboard
+set clipboard+=unnamedplus
 
 inoremap <C-c> <CR><esc>O
 inoremap <C-l> <esc>GA

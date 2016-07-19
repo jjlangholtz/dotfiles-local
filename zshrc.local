@@ -3,6 +3,9 @@ bindkey "^F" forward-char
 bindkey "^K" kill-line
 bindkey "^N" history-search-forward
 
+export EDITOR=nvim
+export VISUAL=nvim
+
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
