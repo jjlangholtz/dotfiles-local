@@ -9,10 +9,11 @@ export VISUAL=nvim
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
-# To hide messages
-eval "$(rbenv init - --no-rehash)"
-
-# Script to alias hub as git
-eval "$(hub alias -s)"
-
 export PATH="$HOME/.bin:$PATH"
+
+export NVM_DIR="/Users/josh/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+eval "$(rbenv init - --no-rehash)" # To hide warning messages
+eval "$(hub alias -s)" # Script to alias hub as git
+
