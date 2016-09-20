@@ -7,9 +7,11 @@ my dotfiles and then add my own local customizations here.
 Install
 -------
 
+Make sure you already have thoughtbot's dotfiles installed first.
+
 Clone:
 
-    git clone git://github.com/jjlangholtz/dotfiles.git
+    git clone git://github.com/jjlangholtz/dotfiles-local.git ~/dotfiles-local
 
 Install:
 
@@ -19,12 +21,6 @@ Afterwards new changes can be installed and sources using `rcup`.
 
 What's Included?
 ----------------
-### Docker
-* Aliases for common docker commands:
-    * `d # docker`
-    * `dc # docker-compose`
-    * `dip # docker-machine ip default`
-
 ### zsh
 * Readline bindings such as `ctrl B, F, K, and N`
 
