@@ -93,3 +93,17 @@ map <leader>rt :!ctags -R --languages=ruby --exclude=.git --exclude=log . $(bund
 
 " remove trailing white space
 autocmd BufWritePre * :%s/\s\+$//e
+
+" vim-emoji configuration
+
+" User defined emoji completion with <c-x c-u>
+set completefunc=emoji#complete
+
+" List all available emojis in a new split
+function! ListEmojis()
+  vnew
+  for e in emoji#list()
+    call append(line('$'), printf('%s (%s)', emoji#for(e), e))
+  endfor
+endfunction
+map <leader>le :call ListEmojis()<cr>
