@@ -1,18 +1,17 @@
-Plug 'Lokaltog/vim-distinguished'
-Plug 'Raimondi/delimitMate'
+" Colorscheme
+Plug 'w0ng/vim-hybrid'
+
+" Language syntax support
 Plug 'elixir-lang/vim-elixir'
 Plug 'fatih/vim-go'
-Plug 'godlygeek/tabular'
-Plug 'jelera/vim-javascript-syntax'
+Plug 'junegunn/vim-emoji'
 Plug 'keith/swift.vim'
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'mxw/vim-jsx'
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'pangloss/vim-javascript'
 Plug 'rhysd/vim-crystal'
-Plug 't9md/vim-ruby-xmpfilter'
 Plug 'tpope/vim-haml'
-Plug 'vim-scripts/matchit.zip'
-Plug 'w0ng/vim-hybrid'
+
+" General plugins
+Plug 'Raimondi/delimitMate'
+Plug 'godlygeek/tabular'
 Plug 'neomake/neomake'
-Plug 'junegunn/vim-emoji'
+Plug 'vim-scripts/matchit.zip'

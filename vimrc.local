@@ -1,83 +1,31 @@
-"edit my local vimrc
-nnoremap <leader>ev :vsplit ~/dotfiles-local/vimrc.local<cr>
-nnoremap <leader>eb :vsplit ~/dotfiles-local/vimrc.bundles.local<cr>
-
-"use rcup to source dotfiles
-nnoremap <leader>d :!rcup -d ~/personal/dotfiles<cr>
-nnoremap <leader>v :source $MYVIMRC<cr>
-
-"strong H and L
-noremap H 0
-noremap L $
-
-set relativenumber
-let &t_Co=256
-
+colorscheme hybrid
 syntax enable
 
+let &t_Co=256
+
 set background=dark
-colorscheme hybrid
+set clipboard+=unnamedplus
+set clipboard=unnamed           "use the system clipboard
+set completefunc=emoji#complete "use emoji for user-defined completions
+set relativenumber
 
-"delete line in insert mode
-inoremap <c-d> <esc>ddO
+"Shortcuts for managing vim configuration
+nnoremap <leader>ev :vsplit ~/dotfiles-local/vimrc.local<cr>
+nnoremap <leader>eb :vsplit ~/dotfiles-local/vimrc.bundles.local<cr>
+nnoremap <leader>v :source $MYVIMRC<cr>
 
-"uppercase the current word
-nnoremap <c-u> viwU<esc>
-inoremap <c-u> <esc>viwUA
-
-"rename current file, via Gary Bernhardt
-function! RenameFile()
-  let old_name = expand('%')
-  let new_name = input('New file name: ', expand('%'))
-  if new_name != '' && new_name != old_name
-    exec ':saveas ' . new_name
-    exec ':silent !rm ' . old_name
-    redraw!
-  endif
-endfunction
-map <leader>n :call RenameFile()<cr>
-
-command! TIL tabe ~/Document/TIL.md
+inoremap <C-c> <CR><esc>O
 
 " Easy debugger placement
 command! Pry :normal i require 'pry'<CR>binding.pry
 
-" Simple re-format for minified Javascript
-command! UnMinify call UnMinify()
-function! UnMinify()
-    %s/{\ze[^\r\n]/{\r/g
-    %s/){/) {/g
-    %s/};\?\ze[^\r\n]/\0\r/g
-    %s/;\ze[^\r\n]/;\r/g
-    %s/[^\s]\zs[=&|]\+\ze[^\s]/ \0 /g
-    normal ggVG=
-endfunction
-
-set clipboard=unnamed "use the system clipboard
-set clipboard+=unnamedplus
-
-inoremap <C-c> <CR><esc>O
-inoremap <C-l> <esc>GA
-
-" Seeing is believing
-let g:xmpfilter_cmd = "seeing_is_believing"
-
-" Tabularize mappings
+" Faster plugin calls
+nnoremap <leader>f :CtrlP<CR>
 nnoremap <leader>>> :Tabularize /:\zs.*/<CR>
 vnoremap <leader>>> :Tabularize /:\zs.*/<CR>
 
-" Leader key for fuzzy find
-nnoremap <leader>f :CtrlP<CR>
-
-" Get rid of handlebars incorrect syntax errors
-let g:syntastic_filetype_map = { 'html.handlebars': 'handlebars' }
-
-" Tell syntastic to use eslint
-let g:syntastic_javascript_checkers = ['eslint']
-
 autocmd! BufWritePost * Neomake
 let g:neomake_ruby_enabled_makers = ['rubocop']
-
 let test#strategy = 'neovim'
 
 " highlight trailing spaces in annoying red
@@ -88,22 +36,17 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
-" ctags leader
-map <leader>rt :!ctags -R --languages=ruby --exclude=.git --exclude=log . $(bundle list --paths)<cr>
-
 " remove trailing white space
 autocmd BufWritePre * :%s/\s\+$//e
 
-" vim-emoji configuration
+" Create missing directories in path when writing a new file
+function s:Mkdir()
+  let dir = expand('%:p:h')
 
-" User defined emoji completion with <c-x c-u>
-set completefunc=emoji#complete
-
-" List all available emojis in a new split
-function! ListEmojis()
-  vnew
-  for e in emoji#list()
-    call append(line('$'), printf('%s (%s)', emoji#for(e), e))
-  endfor
+  if !isdirectory(dir)
+    call mkdir(dir, 'p')
+    echo 'Created non-existing directory: '.dir
+  endif
 endfunction
-map <leader>le :call ListEmojis()<cr>
+
+autocmd BufWritePre * call s:Mkdir()
