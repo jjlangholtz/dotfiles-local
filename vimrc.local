@@ -24,9 +24,9 @@ nnoremap <leader>f :CtrlP<CR>
 nnoremap <leader>>> :Tabularize /:\zs.*/<CR>
 vnoremap <leader>>> :Tabularize /:\zs.*/<CR>
 
-autocmd! BufWritePost * Neomake
-let g:neomake_ruby_enabled_makers = ['rubocop']
+autocmd! BufWritePost,BufWinEnter * Neomake
 let test#strategy = 'neovim'
+let g:neomake_ruby_enabled_makers = ['rubocop']
 
 " highlight trailing spaces in annoying red
 highlight ExtraWhitespace ctermbg=1 guibg=red
@@ -38,15 +38,3 @@ autocmd BufWinLeave * call clearmatches()
 
 " remove trailing white space
 autocmd BufWritePre * :%s/\s\+$//e
-
-" Create missing directories in path when writing a new file
-function s:Mkdir()
-  let dir = expand('%:p:h')
-
-  if !isdirectory(dir)
-    call mkdir(dir, 'p')
-    echo 'Created non-existing directory: '.dir
-  endif
-endfunction
-
-autocmd BufWritePre * call s:Mkdir()
