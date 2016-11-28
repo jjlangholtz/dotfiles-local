@@ -38,3 +38,6 @@ autocmd BufWinLeave * call clearmatches()
 
 " remove trailing white space
 autocmd BufWritePre * :%s/\s\+$//e
+
+vnoremap <c-j> dp'[V']
+vnoremap <c-k> dkP'[V']
