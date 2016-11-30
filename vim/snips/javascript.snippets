@@ -1,0 +1,25 @@
+snippet des
+describe('${1}', function() {
+	${0}
+});
+endsnippet
+
+snippet it
+it('${1}', function() {
+  ${0}
+});
+endsnippet
+
+snippet f "anonymous function" i
+function(${1}) {
+	${0}
+}
+endsnippet
+
+snippet exp "expect" b
+expect(${1:})${0};
+endsnippet
+
+snippet expe "expect to equal" b
+expect(${1:}).to.eql(${0});
+endsnippet

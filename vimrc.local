@@ -12,6 +12,7 @@ set relativenumber
 "Shortcuts for managing vim configuration
 nnoremap <leader>ev :vsplit ~/dotfiles-local/vimrc.local<cr>
 nnoremap <leader>eb :vsplit ~/dotfiles-local/vimrc.bundles.local<cr>
+nnoremap <leader>es :vsplit ~/dotfiles-local/vim/snips<cr>
 nnoremap <leader>v :source $MYVIMRC<cr>
 
 inoremap <C-c> <CR><esc>O
@@ -41,3 +42,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 vnoremap <c-j> dp'[V']
 vnoremap <c-k> dkP'[V']
+
+" Snippet config
+let g:UltiSnipsSnippetDirectories = ["UltiSnips", "snips"]
+let g:UltiSnipsExpandTrigger = "<c-j>"
