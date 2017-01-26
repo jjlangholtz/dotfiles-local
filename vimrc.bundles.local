@@ -2,15 +2,16 @@
 Plug 'w0ng/vim-hybrid'
 
 " Language syntax support
-Plug 'elixir-lang/vim-elixir'
-Plug 'fatih/vim-go'
+Plug 'Quramy/tsuquyomi'
 Plug 'junegunn/vim-emoji'
-Plug 'keith/swift.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'mhartington/vim-typings'
 Plug 'pangloss/vim-javascript'
-Plug 'rhysd/vim-crystal'
 
 " General plugins
 Plug 'Raimondi/delimitMate'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'godlygeek/tabular'
 Plug 'neomake/neomake'
 Plug 'terryma/vim-multiple-cursors'
