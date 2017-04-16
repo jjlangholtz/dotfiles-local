@@ -9,12 +9,14 @@ Plug 'mhartington/vim-typings'
 Plug 'pangloss/vim-javascript'
 
 " General plugins
+Plug 'AndrewRadev/splitjoin.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'godlygeek/tabular'
 Plug 'neomake/neomake'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-rsi'
 Plug 'vim-scripts/matchit.zip'
 
 " Snippets
