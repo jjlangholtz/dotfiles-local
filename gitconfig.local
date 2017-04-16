@@ -2,12 +2,26 @@
   amend = commit -a --amend
   bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -d; }; f"
   bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
+  glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+  prune = fetch --prune
   save = !git add -A && git commit -m 'SAVEPOINT'
+  stash-all = stash save --include-untracked
   undo = reset HEAD~1 --mixed
   up = !git pull --rebase --prune $@ && git submodule update --init --recursive
   wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
 [core]
   editor = /usr/local/bin/vim
+[diff]
+  tool = icdiff
+[difftool]
+  prompt = false
+[difftool "icdiff"]
+  cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
+[merge]
+  conflictstyle = diff3
+[push]
+  default = simple
+  followTags = true
 [user]
   name = Josh Langholtz
   email = jjlangholtz@gmail.com
