@@ -7,17 +7,20 @@ my dotfiles and then add my own local customizations here.
 Install
 -------
 
-Make sure you already have thoughtbot's dotfiles installed first.
+Make sure you already have thoughtbot's dotfiles and laptop installed first.
 
 Clone:
 
-    git clone git://github.com/jjlangholtz/dotfiles-local.git ~/dotfiles-local
+    git clone git@github.com:thoughtbot/dotfiles.git ~/dotfiles
+    git clone git@github.com:jjlangholtz/dotfiles-local.git ~/dotfiles-local
+    git clone git@github.com:jjlangholtz/laptop.git ~/laptop
 
 Install:
 
     env RCRC=$HOME/dotfiles-local/rcrc rcup
 
-Afterwards new changes can be installed and sources using `rcup`.
+Afterwards new changes can be installed and sourced using `laptop`. Run daily to
+keep software up to date.
 
 What's Included?
 ----------------
