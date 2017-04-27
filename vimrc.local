@@ -9,9 +9,10 @@ set clipboard=unnamed           "use the system clipboard
 set completefunc=emoji#complete "use emoji for user-defined completions
 set relativenumber
 
-"Shortcuts for managing vim configuration
+"Shortcuts for managing local configurations
 nnoremap <leader>ev :vsplit ~/dotfiles-local/vimrc.local<cr>
 nnoremap <leader>eb :vsplit ~/dotfiles-local/vimrc.bundles.local<cr>
+nnoremap <leader>el :vsplit ~/dotfiles-local/laptop.local<cr>
 nnoremap <leader>es :vsplit ~/dotfiles-local/vim/snips<cr>
 nnoremap <leader>v :source $MYVIMRC<cr>
 
