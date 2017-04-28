@@ -30,10 +30,13 @@ fancy_echo "Install Rubocop to lint the Ruby..."
 gem_install_or_update 'rubocop'
 
 fancy_echo "Configure Neovim..."
-ln -s ~/.vim ~/.config/nvim
-ln -s ~/.vimrc ~/.config/nvim/init.vim
 gem_install_or_update 'neovim'
 pip install neovim
+
+if [ ! -r "$HOME/.config/nvim" ]; then
+  ln -s ~/.vim ~/.config/nvim
+  ln -s ~/.vimrc ~/.config/nvim/init.vim
+fi
 
 if [ -r "$HOME/.rcrc" ]; then
   fancy_echo "Updating dotfiles..."
