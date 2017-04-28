@@ -4,6 +4,8 @@ fancy_echo "Upgrading Homebrew formulae..."
 brew upgrade
 
 brew bundle --file=- <<EOF
+brew "cmake"
+brew "neovim/neovim/neovim"
 brew "tree"
 
 cask "1password"
@@ -23,6 +25,15 @@ brew cask cleanup
 
 fancy_echo "Install Prettier for JavaScript code formatting..."
 yarn global add prettier
+
+fancy_echo "Install Rubocop to lint the Ruby..."
+gem_install_or_update 'rubocop'
+
+fancy_echo "Configure Neovim..."
+ln -s ~/.vim ~/.config/nvim
+ln -s ~/.vimrc ~/.config/nvim/init.vim
+gem_install_or_update 'neovim'
+pip install neovim
 
 if [ -r "$HOME/.rcrc" ]; then
   fancy_echo "Updating dotfiles..."
