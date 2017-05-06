@@ -4,12 +4,16 @@ fancy_echo "Upgrading Homebrew formulae..."
 brew upgrade
 
 brew bundle --file=- <<EOF
+brew "chromedriver"
 brew "cmake"
+brew "graphviz"
 brew "neovim/neovim/neovim"
+brew "pgcli"
 brew "tree"
 
 cask "1password"
 cask "docker"
+cask "dropbox"
 cask "google-chrome"
 cask "iterm2"
 cask "kindle"
@@ -26,8 +30,10 @@ brew cask cleanup
 fancy_echo "Install Prettier for JavaScript code formatting..."
 yarn global add prettier
 
-fancy_echo "Install Rubocop to lint the Ruby..."
+fancy_echo "Install linters..."
 gem_install_or_update 'rubocop'
+gem_install_or_update 'scss_lint'
+yarn global add eslint
 
 fancy_echo "Configure Neovim..."
 gem_install_or_update 'neovim'
