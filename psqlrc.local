@@ -1,0 +1,20 @@
+\set QUIET 1
+
+-- Show a '*' in the prompt when within a transaction
+\set PROMPT1 '%[%033[1m%]%M %n@%/%R%[%033[0m%]%#%x '
+
+-- Better error handling semantics
+\set ON_ERROR_STOP on
+\set ON_ERROR_ROLLBACK interactive
+
+-- Prettier table output
+\pset unicode_border_linestyle single
+\pset unicode_column_linestyle single
+\pset unicode_header_linestyle double
+
+set intervalstyle to 'postgres_verbose';
+
+-- Better paging flags
+\setenv LESS '-iMFXSx4R'
+
+\unset QUIET

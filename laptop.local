@@ -7,7 +7,6 @@ brew bundle --file=- <<EOF
 brew "chromedriver"
 brew "cmake"
 brew "graphviz"
-brew "pgcli"
 brew "tree"
 
 cask "1password"
