@@ -26,10 +26,6 @@ nnoremap <leader>f :CtrlP<CR>
 nnoremap <leader>>> :Tabularize /:\zs.*/<CR>
 vnoremap <leader>>> :Tabularize /:\zs.*/<CR>
 
-autocmd! BufWritePost,BufWinEnter * Neomake
-let test#strategy = 'neovim'
-let g:neomake_ruby_enabled_makers = ['rubocop']
-
 " highlight trailing spaces in annoying red
 highlight ExtraWhitespace ctermbg=1 guibg=red
 match ExtraWhitespace /\s\+$/
