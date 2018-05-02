@@ -43,3 +43,4 @@ vnoremap <c-k> dkP'[V']
 " Snippet config
 let g:UltiSnipsSnippetDirectories = ["UltiSnips", "snips"]
 let g:UltiSnipsExpandTrigger = "<c-j>"
+let g:user_emmet_leader_key = "<c-j>"
